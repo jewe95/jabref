@@ -196,7 +196,7 @@ class AutoSetFileLinksUtilTest {
 
                 /// ```
                 /// └──citationKeyxxx.pdf
-                /// ```
+                ///```
                 @Test
                 void autoLinkByCitationKeyStartAtRootFolder(@TempDir Path root) throws Exception {
                     when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.START);
@@ -229,7 +229,7 @@ class AutoSetFileLinksUtilTest {
                 /// └──A
                 /// └──B
                 /// └──citationKeyxxx.pdf
-                /// ```
+                ///```
                 @Test
                 void autoLinkByCitationKeyStartAtSubFolder(@TempDir Path root) throws Exception {
                     when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.START);
@@ -267,7 +267,7 @@ class AutoSetFileLinksUtilTest {
                 ///    └── B
                 ///        ├── citationKey.pdf
                 ///        └── citationKeyxxx.pdf
-                /// ```
+                ///```
                 @Test
                 void autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolder(@TempDir Path root) throws Exception {
                     when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.START);
@@ -312,7 +312,7 @@ class AutoSetFileLinksUtilTest {
                 ///    └── B
                 ///        ├── citationKey.pdf
                 ///        └── citationKeyxxx.pdf
-                /// ```
+                ///```
                 @Test
                 void autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(@TempDir Path root) throws Exception {
                     when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.START);
@@ -352,6 +352,83 @@ class AutoSetFileLinksUtilTest {
                     List<LinkedFile> actual = entryA.getFiles();
                     assertEquals(Set.copyOf(expect), Set.copyOf(actual));
                 }
+
+                /**
+                 * Verifies that no file is automatically linked when multiple candidates
+                 * have the same filename when located in different directories.
+                 */
+                @Test
+                void noAutoLinkWhenTwoCandidatesHaveTheSameFilename(@TempDir Path root) throws Exception {
+                    when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.START);
+                    when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
+
+                    String citationKey = "example";
+                    String fileName = "%s.pdf".formatted(citationKey);
+
+                    // Create two folders
+                    Path folderA = root.resolve("A");
+                    Path folderB = root.resolve("B");
+                    Files.createDirectory(folderA);
+                    Files.createDirectory(folderB);
+
+                    // Create files in the different directories
+                    Files.createFile(folderA.resolve(fileName));
+                    Files.createFile(folderB.resolve(fileName));
+
+                    // Setup BibEntry without a linked file
+                    BibEntry entryA = new BibEntry(StandardEntryType.Article);
+                    entryA.setCitationKey(citationKey);
+                    List<BibEntry> entries = List.of(entryA);
+
+                    // Automatic file linking
+                    AutoSetFileLinksUtil util = new AutoSetFileLinksUtil(databaseContext,
+                            externalApplicationsPreferences, filePreferences, autoLinkPrefs);
+                    util.linkAssociatedFiles(entries, onLinkedFilesUpdated);
+
+                    // Check that neither of the candidates been linked
+                    assertEquals(List.of(), entryA.getFiles());
+                }
+
+                /**
+                 * Verifies that a uniquely named candidate is automatically linked while
+                 * candidates with duplicate filenames remain unlinked.
+                 */
+                @Test
+                void autoLinkUniqueCandidateButNotAmbiguousCandidate(@TempDir Path root) throws Exception {
+                    when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.START);
+                    when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
+
+                    String citationKey = "example";
+
+                    // Create the two folders
+                    Path folderA = root.resolve("A");
+                    Path folderB = root.resolve("B");
+                    Files.createDirectory(folderA);
+                    Files.createDirectory(folderB);
+
+                    // Create two files with the same filename
+                    String fileNameDuplicates = "example.pdf";
+                    Files.createFile(folderA.resolve(fileNameDuplicates));
+                    Files.createFile(folderB.resolve(fileNameDuplicates));
+
+                    // Cre<te file with unique filename
+                    String fileNameUnique = "example_unique.pdf";
+                    Files.createFile(folderA.resolve(fileNameUnique));
+
+                    // Setup BibEntry without a linked file
+                    BibEntry entryA = new BibEntry(StandardEntryType.Article);
+                    entryA.setCitationKey(citationKey);
+                    List<BibEntry> entries = List.of(entryA);
+
+                    // Automatic file linking
+                    AutoSetFileLinksUtil util = new AutoSetFileLinksUtil(databaseContext,
+                            externalApplicationsPreferences, filePreferences, autoLinkPrefs);
+                    util.linkAssociatedFiles(entries, onLinkedFilesUpdated);
+
+                    // Check that only the file with the unique name was linked
+                    List<LinkedFile> expect = List.of(new LinkedFile("", Path.of("A", fileNameUnique), "PDF"));
+                    assertEquals(expect, entryA.getFiles());
+                }
             }
 
             @Nested
@@ -360,7 +437,7 @@ class AutoSetFileLinksUtilTest {
 
                 /// ```
                 /// └── citationKeyxxx.pdf
-                /// ```
+                ///```
                 @Test
                 void autoLinkByCitationKeyExactAtRootFolderDoesNotWorkWithNotExactName(@TempDir Path root) throws Exception {
                     when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.EXACT);
@@ -391,7 +468,7 @@ class AutoSetFileLinksUtilTest {
 
                 /// ```
                 /// └── citationKey.pdf
-                /// ```
+                ///```
                 @Test
                 void autoLinkByCitationKeyExactAtRootFolder(@TempDir Path root) throws Exception {
                     when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.EXACT);
@@ -424,7 +501,7 @@ class AutoSetFileLinksUtilTest {
                 /// └── A
                 ///    └── B
                 ///        └── citationKey.pdf
-                /// ```
+                ///```
                 @Test
                 void autoLinkByCitationKeyExactAtSubFolder(@TempDir Path root) throws Exception {
                     when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.EXACT);
@@ -467,7 +544,7 @@ class AutoSetFileLinksUtilTest {
             /// ```
             /// CK: WeDoNotCare
             /// └── broken_file_name.doc
-            /// ```
+            ///```
             @Test
             void noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
@@ -505,7 +582,7 @@ class AutoSetFileLinksUtilTest {
             /// to
             /// └── A
             ///     └── A.pdf
-            /// ```
+            ///```
             @Test
             void autoLinkMoveFileFromRootFolderToSubfolder(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
@@ -544,7 +621,7 @@ class AutoSetFileLinksUtilTest {
             /// to
             /// ├── A
             /// └── A.pdf
-            /// ```
+            ///```
             @Test
             void autoLinkMoveFileFromSubfolderToRootFolder(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
@@ -585,7 +662,7 @@ class AutoSetFileLinksUtilTest {
             /// ├── A
             /// └── B
             ///     └── A.pdf
-            /// ```
+            ///```
             @Test
             void autoLinkMoveFileFromSubfolderToSubfolder(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
@@ -627,7 +704,7 @@ class AutoSetFileLinksUtilTest {
             /// ├── A.pdf
             /// └── A
             ///     └── A.pdf
-            /// ```
+            ///```
             @Test
             void noAutoLinkCopyFileFromRootFolderToSubfolder(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
@@ -667,7 +744,7 @@ class AutoSetFileLinksUtilTest {
             /// ├── A.pdf
             /// └── A
             ///     └── A.pdf
-            /// ```
+            ///```
             @Test
             void noAutoLinkCopyFileFromSubfolderToRootFolder(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
@@ -709,7 +786,7 @@ class AutoSetFileLinksUtilTest {
             /// │   └── A.pdf
             /// └── B
             ///     └── A.pdf
-            /// ```
+            ///```
             @Test
             void noAutoLinkCopyFileFromSubfolderToSubfolder(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
@@ -755,7 +832,7 @@ class AutoSetFileLinksUtilTest {
             /// to
             /// └── A
             ///     └── AAA.pdf
-            /// ```
+            ///```
             @Test
             void autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(@TempDir Path root) throws Exception {
                 when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.EXACT);
@@ -794,7 +871,6 @@ class AutoSetFileLinksUtilTest {
             /// to
             /// ├── AAA.pdf
             /// └── A
-            ///
             @Test
             void autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(@TempDir Path root) throws Exception {
                 when(autoLinkPrefs.getCitationKeyDependency()).thenReturn(AutoLinkPreferences.CitationKeyDependency.EXACT);
@@ -836,7 +912,7 @@ class AutoSetFileLinksUtilTest {
             /// │   └── A.pdf
             /// └── B
             ///     └── AAA.pdf
-            /// ```
+            ///```
             @Test
             void noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(@TempDir Path root) throws Exception {
                 when(databaseContext.getFileDirectories(any())).thenReturn(List.of(root));
