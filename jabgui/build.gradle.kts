@@ -11,6 +11,7 @@ plugins {
     id("org.jabref.gradle.module")
     id("org.jabref.gradle.feature.shadowjar")
     id("application")
+    id("info.solidsoft.pitest") version "1.19.0"
 
     // Do not activate; causes issues with the modularity plugin (no tests found etc)
     // id("com.redock.classpathtofile") version "0.1.0"
@@ -418,3 +419,18 @@ val generateThemePreviews = tasks.register("generateThemePreviews") {
 }
 sourceSets["main"].resources.srcDir(generateThemePreviews)
 // endregion
+
+pitest {
+    targetClasses.set(
+        setOf("org.jabref.gui.externalfiles.AutoSetFileLinksUtil")
+    )
+
+    targetTests.set(
+        setOf("org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest")
+    )
+
+    junit5PluginVersion.set("1.2.3")
+
+    outputFormats.set(setOf("HTML", "XML"))
+    timestampedReports.set(false)
+}
