@@ -15,6 +15,7 @@ import org.jabref.gui.externalfiletype.ExternalFileTypes;
 import org.jabref.gui.frame.ExternalApplicationsPreferences;
 import org.jabref.logic.FilePreferences;
 import org.jabref.logic.util.io.AutoLinkPreferences;
+import org.jabref.logic.util.io.FileFinder;
 import org.jabref.model.database.BibDatabaseContext;
 import org.jabref.model.entry.BibEntry;
 import org.jabref.model.entry.LinkedFile;
@@ -30,6 +31,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.CALLS_REAL_METHODS;
+
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.mockito.exceptions.base.MockitoException;
 
 class AutoSetFileLinksUtilTest {
 
@@ -428,6 +435,99 @@ class AutoSetFileLinksUtilTest {
                     // Check that only the file with the unique name was linked
                     List<LinkedFile> expect = List.of(new LinkedFile("", Path.of("A", fileNameUnique), "PDF"));
                     assertEquals(expect, entryA.getFiles());
+                }
+
+                /**
+                 * Verify that a file that is already linked isn't added once again.
+                 */
+                @Test
+                void doesNotReturnFileThatIsAlreadyLinked(@TempDir Path tempDir) throws IOException {
+
+                    Path file = tempDir.resolve("CiteKey.pdf");
+                    Files.createFile(file);
+
+                    BibEntry entry = new BibEntry(StandardEntryType.Article);
+                    entry.setCitationKey("CiteKey");
+                    entry.addFile(new LinkedFile("", file, "PDF"));
+
+                    when(databaseContext.getFileDirectories(any())).thenReturn(List.of(tempDir));
+
+                    AutoSetFileLinksUtil util = new AutoSetFileLinksUtil(databaseContext, externalApplicationsPreferences, filePreferences, autoLinkPrefs);
+
+                    Collection<LinkedFile> actual = util.findAssociatedNotLinkedFiles(entry);
+
+                    assertEquals(List.of(), actual);
+                }
+
+                /**
+                 * Verifies that a candidate file is included in the results when
+                 * checking file identity fails with an IOException
+                 */
+                @Test
+                void includesCandidateWhenFileIdentityCheckThrowsIOException(@TempDir Path tempDir) throws IOException {
+
+                    Path linkedFile = tempDir.resolve("CiteKey.pdf");
+                    Files.createFile(linkedFile);
+
+                    Path candidateFile = tempDir.resolve("CiteKey_copy.pdf");
+                    Files.createFile(candidateFile);
+
+                    BibEntry entry = new BibEntry(StandardEntryType.Article);
+                    entry.setCitationKey("CiteKey");
+                    entry.addFile(new LinkedFile("", linkedFile, "PDF"));
+
+                    when(databaseContext.getFileDirectories(any())).thenReturn(List.of(tempDir));
+
+                    FileFinder finder = mock(FileFinder.class);
+
+                    when(finder.findAssociatedFiles(any(), any(), any())).thenReturn(List.of(candidateFile));
+
+                    AutoSetFileLinksUtil util = new AutoSetFileLinksUtil(databaseContext, externalApplicationsPreferences, filePreferences, autoLinkPrefs);
+
+                    try (MockedStatic<Files> filesMock =
+                                 mockStatic(Files.class, CALLS_REAL_METHODS)) {
+
+                        filesMock.when(() -> Files.isSameFile(linkedFile, candidateFile))
+                                 .thenThrow(new IOException("Simulated file identity error"));
+
+                        Collection<LinkedFile> actual =
+                                util.findAssociatedNotLinkedFilesWithFinder(
+                                        entry, finder, List.of("pdf"));
+
+                        assertEquals(
+                                List.of(new LinkedFile(
+                                        "", Path.of("CiteKey_copy.pdf"), "PDF")),
+                                actual);
+                    }
+                }
+
+                /**
+                 * Verifies that associated files are kept when they are not already linked to the entry
+                 */
+                @Test
+                void keepsAssociatedFileWhenItIsNotAlreadyLinked(@TempDir Path tempDir) throws IOException {
+
+                    Path differentLinkedFile = tempDir.resolve("linked.pdf");
+                    Path associatedFile = tempDir.resolve("associated.pdf");
+                    Files.createFile(differentLinkedFile);
+                    Files.createFile(associatedFile);
+
+                    LinkedFile expectedLinkedFile = new LinkedFile("", "associated.pdf", "PDF");
+
+                    BibEntry entry = new BibEntry(StandardEntryType.Article);
+                    entry.setCitationKey("CiteKey");
+                    entry.addFile(new LinkedFile("", differentLinkedFile, "PDF"));
+
+                    when(databaseContext.getFileDirectories(any())).thenReturn(List.of(tempDir));
+
+                    FileFinder finder = mock(FileFinder.class);
+                    when(finder.findAssociatedFiles(any(), any(), any())).thenReturn(List.of(associatedFile));
+
+                    AutoSetFileLinksUtil util = new AutoSetFileLinksUtil(databaseContext, externalApplicationsPreferences, filePreferences, autoLinkPrefs);
+
+                    Collection<LinkedFile> actual = util.findAssociatedNotLinkedFilesWithFinder(entry, finder, List.of("pdf"));
+
+                    assertEquals(List.of(expectedLinkedFile), actual);
                 }
             }
 
