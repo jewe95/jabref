@@ -1,0 +1,4893 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>AutoSetFileLinksUtil.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.jabref.gui.externalfiles;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.file.Files;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.file.Path;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collection;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Objects;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Optional;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.function.BiConsumer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.stream.Collectors;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.stream.Stream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.gui.externalfiletype.ExternalFileType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.gui.externalfiletype.ExternalFileTypes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.gui.frame.ExternalApplicationsPreferences;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.logic.FilePreferences;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.logic.bibtex.FileFieldWriter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.logic.util.io.AutoLinkPreferences;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.logic.util.io.FileFinder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.logic.util.io.FileFinders;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.logic.util.io.FileUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.model.database.BibDatabaseContext;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.model.entry.BibEntry;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jabref.model.entry.LinkedFile;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.slf4j.Logger;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.slf4j.LoggerFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class AutoSetFileLinksUtil {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static class LinkFilesResult {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private final List&#60;BibEntry&#62; changedEntries = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private final List&#60;IOException&#62; fileExceptions = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        protected void addBibEntry(BibEntry bibEntry) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            changedEntries.add(bibEntry);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        protected void addFileException(IOException exception) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            fileExceptions.add(exception);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public List&#60;BibEntry&#62; getChangedEntries() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            return changedEntries;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public List&#60;IOException&#62; getFileExceptions() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            return fileExceptions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final Logger LOGGER = LoggerFactory.getLogger(AutoSetFileLinksUtil.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Path&#62; directories;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final AutoLinkPreferences autoLinkPreferences;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final ExternalApplicationsPreferences externalApplicationsPreferences;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final FileFinder preConfiguredFileFinder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final FileFinder brokenLinkedFileNameBasedFileFinder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public AutoSetFileLinksUtil(BibDatabaseContext databaseContext,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                ExternalApplicationsPreferences externalApplicationsPreferences,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                FilePreferences filePreferences,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                AutoLinkPreferences autoLinkPreferences) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this(databaseContext.getFileDirectories(filePreferences), externalApplicationsPreferences, autoLinkPreferences);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private AutoSetFileLinksUtil(List&#60;Path&#62; directories, ExternalApplicationsPreferences externalApplicationsPreferences, AutoLinkPreferences autoLinkPreferences) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.directories = directories;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.autoLinkPreferences = autoLinkPreferences;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.externalApplicationsPreferences = externalApplicationsPreferences;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.preConfiguredFileFinder = FileFinders.constructFromConfiguration(autoLinkPreferences);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.brokenLinkedFileNameBasedFileFinder = FileFinders.constructBrokenLinkedFileNameBasedFileFinder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// [impl-&#62;req~logic.externalfiles.file-transfer.auto-link~1]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public LinkFilesResult linkAssociatedFiles(List&#60;BibEntry&#62; entries, BiConsumer&#60;List&#60;LinkedFile&#62;, BibEntry&#62; onAddLinkedFile) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        LinkFilesResult result = new LinkFilesResult();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (BibEntry entry : entries) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_86'>1</a>
+<span>
+
+1. linkAssociatedFiles : removed call to org/jabref/gui/externalfiles/AutoSetFileLinksUtil::doLinkAssociatedFiles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            doLinkAssociatedFiles(entry, onAddLinkedFile, result);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_88'/>
+88
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_88'>1</a>
+<span>
+
+1. linkAssociatedFiles : replaced return value with null for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::linkAssociatedFiles &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// Source of associated not linked files:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///   - Part A. match file name with CitationKey, (START, EXACT, REGEX) configured by user</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///   - Part B. match file name with broken linked file names, currently silently happen</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// The auto-link process:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///   - Prolog: we only consider the file with a unique name</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///       - if a file&#39;s name is found multiple times in Part A, we do not consider it in Step 1</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///       - if a file&#39;s name is found multiple times in Part B, we do not consider it in Step 2</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///   - Step 1. try to auto link each broken linked file with Part A at first. For unlinked files left in Part A, if no</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///         linked file with same name exists, add them</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///       - why `add`: Part A are found mainly by CitationKey, which has strong connection to the entry, so we are</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///                    confident that we should add them automatically</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///   - Step 2. try to auto link each broken linked file with Part B.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///       - how about `unlinked files left in Part B`: those files have the same name with one broken linked file</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///                    but different extension. We skip those files.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///       - one trick: we accumulate Part B after Step 1, so Part A does not affect those broken linked files we use</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///                    to query Part B</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void doLinkAssociatedFiles(BibEntry entry, BiConsumer&#60;List&#60;LinkedFile&#62;, BibEntry&#62; onAddLinkedFile, LinkFilesResult result) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        boolean entryUpdated = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Step 1: try matched files based on CitationKey configured by user</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Map&#60;String, LinkedFile&#62; files = getAssociatedFiles(entry, result, preConfiguredFileFinder);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;LinkedFile&#62; newLinkedFiles = autoLinkBrokenLinkedFiles(entry.getFiles(), files);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_116'/>
+116
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_116'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (filesChanged(newLinkedFiles, entry.getFiles())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            entryUpdated = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_118'/>
+118
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_118'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : removed call to java/util/function/BiConsumer::accept &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            onAddLinkedFile.accept(newLinkedFiles, entry);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Add left unlinked files as new linked files</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Set&#60;String&#62; linkedFileNames = entry.getFiles().stream().map(LinkedFile::getLink)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                           .map(FileUtil::getBaseName).collect(Collectors.toSet());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;LinkedFile&#62; filesToAdd = files.entrySet().stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_124'/>
+124
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_124'>2</a>
+<span>
+
+1. lambda$doLinkAssociatedFiles$0 : replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$doLinkAssociatedFiles$0 &rarr; KILLED<br/>
+
+2. lambda$doLinkAssociatedFiles$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                           .filter(mapEntry -&#62; !linkedFileNames.contains(mapEntry.getKey()))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                           .map(Map.Entry::getValue)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                           .toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_127'/>
+127
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_127'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!filesToAdd.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            entryUpdated = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            newLinkedFiles = new ArrayList&#60;&#62;(entry.getFiles());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            newLinkedFiles.addAll(filesToAdd);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_131'/>
+131
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_131'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : removed call to java/util/function/BiConsumer::accept &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            onAddLinkedFile.accept(newLinkedFiles, entry);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Step 2: try matched files based on broken linked file names</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        files = getAssociatedFiles(entry, result, brokenLinkedFileNameBasedFileFinder);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        newLinkedFiles = autoLinkBrokenLinkedFiles(entry.getFiles(), files);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_137'/>
+137
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_137'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (filesChanged(newLinkedFiles, entry.getFiles())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            entryUpdated = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_139'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : removed call to java/util/function/BiConsumer::accept &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            onAddLinkedFile.accept(newLinkedFiles, entry);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // We skip files left in`files`, they have same name with one broken linked file but different extension</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_143'/>
+143
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_143'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (entryUpdated) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_144'/>
+144
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_144'>1</a>
+<span>
+
+1. doLinkAssociatedFiles : removed call to org/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult::addBibEntry &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            result.addBibEntry(entry);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private boolean filesChanged(List&#60;LinkedFile&#62; newLinkedFiles, List&#60;LinkedFile&#62; files) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String newValue = FileFieldWriter.getStringRepresentation(newLinkedFiles);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String oldValue = FileFieldWriter.getStringRepresentation(files);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_152'/>
+152
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_152'>2</a>
+<span>
+
+1. filesChanged : replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::filesChanged &rarr; SURVIVED<br/>
+
+2. filesChanged : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return !Objects.equals(newValue, oldValue);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private List&#60;LinkedFile&#62; autoLinkBrokenLinkedFiles(List&#60;LinkedFile&#62; linkedFiles, Map&#60;String, LinkedFile&#62; files) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;LinkedFile&#62; updated = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (LinkedFile linkedFile : linkedFiles) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String fileName = FileUtil.getBaseName(linkedFile.getLink());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Optional&#60;String&#62; extension = FileUtil.getFileExtension(linkedFile.getLink());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_160'/>
+160
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_160'>1</a>
+<span>
+
+1. autoLinkBrokenLinkedFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isBrokenLinkedFile(linkedFile)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_161'/>
+161
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_161'>1</a>
+<span>
+
+1. autoLinkBrokenLinkedFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    &#38;&#38; files.containsKey(fileName)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_162'/>
+162
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_162'>1</a>
+<span>
+
+1. autoLinkBrokenLinkedFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    &#38;&#38; extension.isPresent()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_163'/>
+163
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_163'>1</a>
+<span>
+
+1. autoLinkBrokenLinkedFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    &#38;&#38; extension.get().equalsIgnoreCase(files.get(fileName).getFileType())</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            ) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_165'>1</a>
+<span>
+
+1. autoLinkBrokenLinkedFiles : removed call to org/jabref/model/entry/LinkedFile::setLink &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                linkedFile.setLink(files.get(fileName).getLink());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                updated.add(linkedFile);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                files.remove(fileName);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                updated.add(linkedFile);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_172'/>
+172
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_172'>1</a>
+<span>
+
+1. autoLinkBrokenLinkedFiles : replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::autoLinkBrokenLinkedFiles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return updated;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Map&#60;String, LinkedFile&#62; getAssociatedFiles(BibEntry entry, LinkFilesResult result, FileFinder finder) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        Map&#60;String, LinkedFile&#62; files;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            files = findAssociatedNotLinkedFilesWithUniqueName(entry, finder);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (IOException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_180'/>
+180
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_180'>1</a>
+<span>
+
+1. getAssociatedFiles : removed call to org/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult::addFileException &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            result.addFileException(e);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            LOGGER.error(&#34;Problem finding files&#34;, e);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            files = Map.of();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return files;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Map&#60;String, LinkedFile&#62; findAssociatedNotLinkedFilesWithUniqueName(BibEntry entry, FileFinder finder) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Collection&#60;LinkedFile&#62; files = findAssociatedNotLinkedFilesWithFinder(entry, finder, getConfiguredExtensions());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Set&#60;String&#62; toBeRemoved = new HashSet&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Map&#60;String, LinkedFile&#62; result = new HashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_193'/>
+193
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_193'>1</a>
+<span>
+
+1. findAssociatedNotLinkedFilesWithUniqueName : removed call to java/util/Collection::forEach &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        files.forEach(file -&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String fileName = FileUtil.getBaseName(file.getLink());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_195'/>
+195
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_195'>1</a>
+<span>
+
+1. lambda$findAssociatedNotLinkedFilesWithUniqueName$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!result.containsKey(fileName)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.put(fileName, file);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_197'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                toBeRemoved.add(fileName);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_200'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        });</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_201'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_202'/>
+202
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_202'>1</a>
+<span>
+
+1. findAssociatedNotLinkedFilesWithUniqueName : removed call to java/util/Set::forEach &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        toBeRemoved.forEach(result::remove);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_203'/>
+203
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_203'>1</a>
+<span>
+
+1. findAssociatedNotLinkedFilesWithUniqueName : replaced return value with Collections.emptyMap for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::findAssociatedNotLinkedFilesWithUniqueName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_204'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_205'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_206'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// Scans for missing files which should be linked to the given entry.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_207'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_208'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// Related: [org.jabref.gui.externalfiles.UnlinkedFilesCrawler] for scanning files missing at all entries</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_209'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_210'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// NOTE:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_211'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_212'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// 1. This method does not check if the file is already linked to another entry.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_213'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /// 2. This method does not guarantee how the returned files are ordered. Order by how they appear in BibEntry does</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_214'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///    not work since findAssociatedFilesByBrokenLinkedFile may return multiple files (with the same name) for one</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_215'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ///    broken linked file in the entry.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_216'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Collection&#60;LinkedFile&#62; findAssociatedNotLinkedFiles(BibEntry entry) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_217'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Find the associated files</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_218'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;String&#62; extensions = getConfiguredExtensions();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_219'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        LOGGER.debug(&#34;Searching for associated not linked files with extensions {} in directories {}&#34;, extensions, directories);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_220'/>
+220
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_220'>1</a>
+<span>
+
+1. findAssociatedNotLinkedFiles : replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::findAssociatedNotLinkedFiles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return Stream.concat(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_221'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                             findAssociatedNotLinkedFilesWithFinder(entry, preConfiguredFileFinder, extensions).stream(),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_222'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                             findAssociatedNotLinkedFilesWithFinder(entry, brokenLinkedFileNameBasedFileFinder, extensions).stream())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_223'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                     .distinct()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_224'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                     .toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_225'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_226'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_227'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Collection&#60;LinkedFile&#62; findAssociatedNotLinkedFilesWithFinder(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_228'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            BibEntry entry, FileFinder finder, List&#60;String&#62; extensions) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_229'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Find the associated files</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_230'/>
+230
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_230'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Path&#62; associatedFiles = finder.findAssociatedFiles(entry, directories, extensions);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_231'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_232'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Collect the linked files that are not broken</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_233'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Path&#62; linkedFiles =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_234'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                entry.getFiles().stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_235'/>
+235
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_235'>1</a>
+<span>
+
+1. lambda$findAssociatedNotLinkedFilesWithFinder$0 : replaced return value with Optional.empty for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$findAssociatedNotLinkedFilesWithFinder$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                     .map(file -&#62; file.findIn(directories))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_236'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                     .flatMap(Optional::stream)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_237'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                     .toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_238'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_239'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Only keep associated files that are not linked</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_240'/>
+240
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_240'>1</a>
+<span>
+
+1. findAssociatedNotLinkedFilesWithFinder : replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::findAssociatedNotLinkedFilesWithFinder &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return associatedFiles</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_241'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_242'/>
+242
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_242'>2</a>
+<span>
+
+1. lambda$findAssociatedNotLinkedFilesWithFinder$1 : replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$findAssociatedNotLinkedFilesWithFinder$1 &rarr; KILLED<br/>
+
+2. lambda$findAssociatedNotLinkedFilesWithFinder$1 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .filter(associatedFile -&#62; !isFileAlreadyLinked(associatedFile, linkedFiles))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_243'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .map(this::buildLinkedFileFromPath)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_244'/>
+244
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_244'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_245'/>
+245
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_245'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_246'/>
+246
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_246'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_247'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private boolean isBrokenLinkedFile(LinkedFile file) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_248'/>
+248
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_248'>2</a>
+<span>
+
+1. isBrokenLinkedFile : replaced boolean return with false for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isBrokenLinkedFile &rarr; KILLED<br/>
+
+2. isBrokenLinkedFile : replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isBrokenLinkedFile &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return file.findIn(directories).isEmpty();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_249'/>
+249
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_249'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_250'/>
+250
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_250'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_251'/>
+251
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_251'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private LinkedFile buildLinkedFileFromPath(Path associatedFile) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_252'/>
+252
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_252'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String strType = checkAndGetFileType(associatedFile);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_253'/>
+253
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_253'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Path relativeFilePath = FileUtil.relativize(associatedFile, directories);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_254'/>
+254
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_254'>1</a>
+<span>
+
+1. buildLinkedFileFromPath : replaced return value with null for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::buildLinkedFileFromPath &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new LinkedFile(&#34;&#34;, relativeFilePath, strType);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_255'/>
+255
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_255'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_256'/>
+256
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_256'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_257'/>
+257
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_257'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private List&#60;String&#62; getConfiguredExtensions() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_258'/>
+258
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_258'>1</a>
+<span>
+
+1. getConfiguredExtensions : replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::getConfiguredExtensions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return externalApplicationsPreferences</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_259'/>
+259
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_259'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .getExternalFileTypes()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_260'/>
+260
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_260'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .stream().map(ExternalFileType::getExtension).toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_261'/>
+261
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_261'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_262'/>
+262
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_262'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_263'/>
+263
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_263'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String checkAndGetFileType(Path associatedFile) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_264'/>
+264
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_264'>1</a>
+<span>
+
+1. checkAndGetFileType : replaced return value with &#34;&#34; for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::checkAndGetFileType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return FileUtil.getFileExtension(associatedFile)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_265'/>
+265
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_265'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                       .flatMap(extension -&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_266'/>
+266
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_266'>1</a>
+<span>
+
+1. lambda$checkAndGetFileType$0 : replaced return value with Optional.empty for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$checkAndGetFileType$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                               ExternalFileTypes.getExternalFileTypeByExt(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_267'/>
+267
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_267'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                       extension,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_268'/>
+268
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_268'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                       externalApplicationsPreferences</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_269'/>
+269
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_269'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                               ))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_270'/>
+270
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_270'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                       .map(ExternalFileType::getName).orElse(&#34;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_271'/>
+271
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_271'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_272'/>
+272
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_272'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_273'/>
+273
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_273'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static boolean isFileAlreadyLinked(Path foundFile, List&#60;Path&#62; linkedFiles) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_274'/>
+274
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_274'>2</a>
+<span>
+
+1. isFileAlreadyLinked : replaced boolean return with false for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isFileAlreadyLinked &rarr; KILLED<br/>
+
+2. isFileAlreadyLinked : replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isFileAlreadyLinked &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return linkedFiles.stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_275'/>
+275
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_275'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                          .anyMatch(linked -&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_276'/>
+276
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_276'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                              try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_277'/>
+277
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_277'>2</a>
+<span>
+
+1. lambda$isFileAlreadyLinked$0 : replaced boolean return with false for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$isFileAlreadyLinked$0 &rarr; KILLED<br/>
+
+2. lambda$isFileAlreadyLinked$0 : replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$isFileAlreadyLinked$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                  return Files.isSameFile(linked, foundFile);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_278'/>
+278
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_278'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                              } catch (IOException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_279'/>
+279
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_279'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                  LOGGER.debug(&#34;Unable to check file identity, assuming no identity&#34;, e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_280'/>
+280
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_280'>1</a>
+<span>
+
+1. lambda$isFileAlreadyLinked$0 : replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$isFileAlreadyLinked$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                  return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_281'/>
+281
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_281'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                              }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_282'/>
+282
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_282'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                          });</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_283'/>
+283
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_283'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3336e6b6_284'/>
+284
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_284'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>linkAssociatedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</span></span> removed call to org/jabref/gui/externalfiles/AutoSetFileLinksUtil::doLinkAssociatedFiles &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_88'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>linkAssociatedFiles<br/><b>Killed by : </b>none</span></span> replaced return value with null for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::linkAssociatedFiles &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=linkAssociatedFiles,-methodDesc=(Ljava/util/List;Ljava/util/function/BiConsumer;)Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=linkAssociatedFiles,-methodDesc=(Ljava/util/List;Ljava/util/function/BiConsumer;)Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=linkAssociatedFiles,-methodDesc=(Ljava/util/List;Ljava/util/function/BiConsumer;)Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:noAutoLinkWhenTwoCandidatesHaveTheSameFilename(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolderDoesNotWorkWithNotExactName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkUniqueCandidateButNotAmbiguousCandidate(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtSubFolder(java.nio.file.Path)]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_116'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:noAutoLinkWhenTwoCandidatesHaveTheSameFilename(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolderDoesNotWorkWithNotExactName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkUniqueCandidateButNotAmbiguousCandidate(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtSubFolder(java.nio.file.Path)]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_118'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>none</span></span> removed call to java/util/function/BiConsumer::accept &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$doLinkAssociatedFiles$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</span></span> replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$doLinkAssociatedFiles$0 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$doLinkAssociatedFiles$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_127'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_131'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</span></span> removed call to java/util/function/BiConsumer::accept &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_137'>137</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_137'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</span></span> removed call to java/util/function/BiConsumer::accept &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_143'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[143],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[143],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[143],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:noAutoLinkWhenTwoCandidatesHaveTheSameFilename(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolderDoesNotWorkWithNotExactName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkUniqueCandidateButNotAmbiguousCandidate(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtSubFolder(java.nio.file.Path)]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_144'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doLinkAssociatedFiles<br/><b>Killed by : </b>none</span></span> removed call to org/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult::addBibEntry &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[148],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[148],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=doLinkAssociatedFiles,-methodDesc=(Lorg/jabref/model/entry/BibEntry;Ljava/util/function/BiConsumer;Lorg/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult;)V],-indexes=[148],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkUniqueCandidateButNotAmbiguousCandidate(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtSubFolder(java.nio.file.Path)]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_152'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>filesChanged<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::filesChanged &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=filesChanged,-methodDesc=(Ljava/util/List;Ljava/util/List;)Z],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=filesChanged,-methodDesc=(Ljava/util/List;Ljava/util/List;)Z],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jabref.gui.externalfiles.AutoSetFileLinksUtil,-method=filesChanged,-methodDesc=(Ljava/util/List;Ljava/util/List;)Z],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromRootFolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToSubfolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:noAutoLinkWhenTwoCandidatesHaveTheSameFilename(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolderDoesNotWorkWithNotExactName(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolder(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkUniqueCandidateButNotAmbiguousCandidate(java.nio.file.Path)]</li> <li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtSubFolder(java.nio.file.Path)]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>filesChanged<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_160'>160</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_160'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>autoLinkBrokenLinkedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_161'>161</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_161'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>autoLinkBrokenLinkedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_162'>162</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_162'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>autoLinkBrokenLinkedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_163'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>autoLinkBrokenLinkedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>autoLinkBrokenLinkedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</span></span> removed call to org/jabref/model/entry/LinkedFile::setLink &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_172'>172</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_172'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>autoLinkBrokenLinkedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToRootFolder(java.nio.file.Path)]</span></span> replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::autoLinkBrokenLinkedFiles &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_180'>180</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_180'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAssociatedFiles<br/><b>Killed by : </b>none</span></span> removed call to org/jabref/gui/externalfiles/AutoSetFileLinksUtil$LinkFilesResult::addFileException &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_193'>193</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_193'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findAssociatedNotLinkedFilesWithUniqueName<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</span></span> removed call to java/util/Collection::forEach &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_195'>195</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_195'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$findAssociatedNotLinkedFilesWithUniqueName$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_202'>202</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_202'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findAssociatedNotLinkedFilesWithUniqueName<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:noAutoLinkWhenTwoCandidatesHaveTheSameFilename(java.nio.file.Path)]</span></span> removed call to java/util/Set::forEach &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_203'>203</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_203'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findAssociatedNotLinkedFilesWithUniqueName<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)]</span></span> replaced return value with Collections.emptyMap for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::findAssociatedNotLinkedFilesWithUniqueName &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_220'>220</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_220'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findAssociatedNotLinkedFiles<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesSuccess()]</span></span> replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::findAssociatedNotLinkedFiles &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_235'>235</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_235'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$findAssociatedNotLinkedFilesWithFinder$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:doesNotReturnFileThatIsAlreadyLinked(java.nio.file.Path)]</span></span> replaced return value with Optional.empty for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$findAssociatedNotLinkedFilesWithFinder$0 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_240'>240</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_240'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findAssociatedNotLinkedFilesWithFinder<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesSuccess()]</span></span> replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::findAssociatedNotLinkedFilesWithFinder &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_242'>242</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_242'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$findAssociatedNotLinkedFilesWithFinder$1<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:doesNotReturnFileThatIsAlreadyLinked(java.nio.file.Path)]</span></span> replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$findAssociatedNotLinkedFilesWithFinder$1 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$findAssociatedNotLinkedFilesWithFinder$1<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:doesNotReturnFileThatIsAlreadyLinked(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_248'>248</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_248'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isBrokenLinkedFile<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)]</span></span> replaced boolean return with false for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isBrokenLinkedFile &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isBrokenLinkedFile<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)]</span></span> replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isBrokenLinkedFile &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_254'>254</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_254'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>buildLinkedFileFromPath<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)]</span></span> replaced return value with null for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::buildLinkedFileFromPath &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_258'>258</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_258'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getConfiguredExtensions<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesSuccess()]</span></span> replaced return value with Collections.emptyList for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::getConfiguredExtensions &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_264'>264</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_264'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkAndGetFileType<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesSuccess()]</span></span> replaced return value with &#34;&#34; for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::checkAndGetFileType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_266'>266</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_266'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$checkAndGetFileType$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesSuccess()]</span></span> replaced return value with Optional.empty for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$checkAndGetFileType$0 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_274'>274</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_274'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isFileAlreadyLinked<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:doesNotReturnFileThatIsAlreadyLinked(java.nio.file.Path)]</span></span> replaced boolean return with false for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isFileAlreadyLinked &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isFileAlreadyLinked<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesSuccess()]</span></span> replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::isFileAlreadyLinked &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_277'>277</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_277'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$isFileAlreadyLinked$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:doesNotReturnFileThatIsAlreadyLinked(java.nio.file.Path)]</span></span> replaced boolean return with false for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$isFileAlreadyLinked$0 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$isFileAlreadyLinked$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:keepsAssociatedFileWhenItIsNotAlreadyLinked(java.nio.file.Path)]</span></span> replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$isFileAlreadyLinked$0 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3336e6b6_280'>280</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3336e6b6_280'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$isFileAlreadyLinked$0<br/><b>Killed by : </b>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:includesCandidateWhenFileIdentityCheckThrowsIOException(java.nio.file.Path)]</span></span> replaced boolean return with true for org/jabref/gui/externalfiles/AutoSetFileLinksUtil::lambda$isFileAlreadyLinked$0 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToRootFolder(java.nio.file.Path)] (22 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkByCitationKeyStartAtRootFolderWithSuffixMismatch(java.nio.file.Path)] (18 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtRootFolder(java.nio.file.Path)] (23 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartAtSubFolder(java.nio.file.Path)] (24 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromRootFolderToSubfolder(java.nio.file.Path)] (29 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToSubfolder(java.nio.file.Path)] (24 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromRootFolderToSubfolder(java.nio.file.Path)] (26 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromRootFolderToSubFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)] (26 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:noAutoLinkCopyFileFromSubfolderToSubfolder(java.nio.file.Path)] (32 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byBrokenLinkedFileNameOnly]/[method:autoLinkMoveFileFromSubfolderToRootFolder(java.nio.file.Path)] (29 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolderAndOneMatchABrokenLinkedFileName(java.nio.file.Path)] (30 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:noAutoLinkCopyFileFromSubfolderToSubfolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)] (32 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyAndBrokenLinkedFileName]/[method:autoLinkMoveFileFromSubFolderToRootFolderByBothBrokenLinkedFileNameAndCitationKey(java.nio.file.Path)] (34 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkByCitationKeyStartMatchingTwoFilesAtSubFolder(java.nio.file.Path)] (42 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolder(java.nio.file.Path)] (52 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:autoLinkUniqueCandidateButNotAmbiguousCandidate(java.nio.file.Path)] (59 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtSubFolder(java.nio.file.Path)] (72 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:noAutoLinkWhenTwoCandidatesHaveTheSameFilename(java.nio.file.Path)] (34 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithExact]/[method:autoLinkByCitationKeyExactAtRootFolderDoesNotWorkWithNotExactName(java.nio.file.Path)] (40 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:doesNotReturnFileThatIsAlreadyLinked(java.nio.file.Path)] (24 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesSuccess()] (30 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findOneAssociatedNotLinkedFile(java.nio.file.Path)] (61 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAllAssociatedNotLinkedFilesAndNotRepeated(java.nio.file.Path)] (63 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAllAssociatedNotLinkedFilesInsteadOfTheFirstOne(java.nio.file.Path)] (118 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[method:findAssociatedNotLinkedFilesForEmptySearchDir()] (916 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:includesCandidateWhenFileIdentityCheckThrowsIOException(java.nio.file.Path)] (312 ms)</li><li>org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest.[engine:junit-jupiter]/[class:org.jabref.gui.externalfiles.AutoSetFileLinksUtilTest]/[nested-class:linkAssociatedFiles]/[nested-class:byCitationKeyOnly]/[nested-class:configuredCitationKeyDependencyWithStart]/[method:keepsAssociatedFileWhenItIsNotAlreadyLinked(java.nio.file.Path)] (333 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.22.1
+
+</body>
+</html>
